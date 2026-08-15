@@ -1,0 +1,36 @@
+{
+  "listen": "0.0.0.0",
+  "port": 8095,
+  "tiers": {
+    "l1": {
+      "name": "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+      "base_url": "http://localhost:8080/v1",
+      "api_key": "local"
+    },
+    "l2": {
+      "name": "deepseek-v4-flash",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "reasoning_off": true
+    },
+    "l3": {
+      "name": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "reasoning_off": true
+    }
+  },
+  "llm_tiebreaker": {
+    "enabled": true,
+    "base_url": "http://localhost:8080/v1",
+    "model": "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+    "api_key": "local",
+    "max_tokens": 64,
+    "timeout_s": 45
+  },
+  "audit_log": "/var/log/inhouse-triage/triage.log",
+  "session_ttl_s": 3600,
+  "upstream_timeout_s": 300,
+  "min_max_tokens_l23": 8192,
+  "triage_model_name": "triage"
+}

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inhouse-triage"
+version = "0.1.0"
+description = "ITIL three-tier helpdesk router: OpenAI-compatible triage proxy (L1 local / L2 flash / L3 pro)"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+[tool.setuptools]
+packages = ["inhouse_triage"]

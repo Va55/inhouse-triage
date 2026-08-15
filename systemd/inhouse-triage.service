@@ -1,0 +1,20 @@
+[Unit]
+Description=inhouse-triage — ITIL three-tier helpdesk router (OpenAI-compatible)
+After=network.target llama-server.service
+Wants=llama-server.service
+
+[Service]
+Type=simple
+# Adjust to the user the service should run as
+User=YOUR_USER
+Group=YOUR_USER
+Environment=HOME=/home/YOUR_USER
+WorkingDirectory=/opt/inhouse-triage
+ExecStart=/usr/bin/python3 -m inhouse_triage.server --config /opt/inhouse-triage/config.json
+Restart=on-failure
+RestartSec=10
+# DEEPSEEK_API_KEY for L2/L3 (api_key_env in config.json)
+EnvironmentFile=/opt/inhouse-triage/.env
+
+[Install]
+WantedBy=multi-user.target

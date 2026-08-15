@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Production-local files (never versioned) — see README "Development vs production"
+config.json
+.env
